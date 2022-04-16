@@ -5,7 +5,7 @@ import Navigation from './Components/Pages/Shared/Navigation/Navigation';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navigation/>
      <Home/>
     </div>
