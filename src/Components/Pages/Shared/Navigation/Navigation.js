@@ -5,10 +5,10 @@ import logo from '../../../../img/logo.png'
 
 const Navigation = () => {
   return (
-    <div>
+    <div className="sticky-top">
       <Navbar bg="none" expand="lg"  >
         <Container>
-          <Navbar.Brand as={Link} to="/home"><img width="40px" src={logo} alt="" /><span className="fw-bold text-warning">Travel</span></Navbar.Brand>
+          <Navbar.Brand as={Link} to="/home"><img width="40px" src={logo} alt="" /><span className="fw-bold text-primary">Travel</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
