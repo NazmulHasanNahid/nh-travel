@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
   useEffect(()=>{
     if(error){
       toast(error?.message)
@@ -148,7 +148,7 @@ const from = location.state?.from?.pathname || "/"
               
               </div>
               <div className="form-field col-lg-12">
-                {errorElement}
+               
                 
                 
                 
