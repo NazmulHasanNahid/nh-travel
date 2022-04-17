@@ -1,24 +1,24 @@
 [
   {
     "id": "1",
-    "name": "Tour Guide",
-    "description": "We Are provide A Tour Guide thats how you can travel any places what ever you Want",
+    "name": "Seven Dasys Tour",
+    "description": "Four Places Visit And Included Hotel Service And Free Lunch And Dinner",
     "price": 700,
     "img": "https://i.ibb.co/qmLdGRs/guide1.png"
    
   },
   {
     "id": "2",
-    "name": "Tour Package",
-    "description": "We Have Multiple Tour Packages Your Choose Best Packges in Your Reasonable Budget",
-    "price": 600,
+    "name": "One Day Tour",
+    "description": "This Package Has see Beach And Mounten Visit Also included Free Lunch",
+    "price": 300,
     "img": "https://i.ibb.co/Dr9fhbz/guide2.png"
    
   },
   {
     "id": "3",
-    "name": "Travel And Hotel Packages",
-    "description": "We Are Not Provide Any kind of Hotel Service But if you need to stay in Hotel We have Agency Who can help for find a best hotel",
+    "name": "Half Days Tour",
+    "description": "This Tour Has only for this Person Who can swimming in River and Enjoy The Sea beach Vibe",
     "price": 100,
     
     "img": "https://i.ibb.co/z7Lz30P/Booking-Img.png"

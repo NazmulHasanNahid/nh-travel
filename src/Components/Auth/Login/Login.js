@@ -87,7 +87,7 @@ const Login = () => {
                 {errors?.password && (
                   <p className="text-danger my-3 fw-bold">{errors?.password}</p>
                 )}
-               <p className="mt-3">{<BsEyeFill onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
+               <p className="mt-3">{<BsEyeFill size={20} onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
                 
               
               </div>

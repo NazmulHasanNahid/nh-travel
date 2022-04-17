@@ -150,7 +150,7 @@ const from = location.state?.from?.pathname || "/"
                 )}
               
               </div>
-              <p className="">{<BsEyeFill onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
+              <p className="">{<BsEyeFill size={20} onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
                 
               <div className="form-field col-lg-12">
                
