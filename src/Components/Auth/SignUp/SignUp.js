@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword ,} from 'react-firebase-hooks/auth';
+
 import auth from "../../../firebase.init";
 
 
@@ -8,6 +9,9 @@ import auth from "../../../firebase.init";
 
 
 const SignUp = () => {
+     
+     
+
      const [
           createUserWithEmailAndPassword,
           user,
@@ -24,6 +28,9 @@ const SignUp = () => {
           email:"" ,
           password:"",
      })
+     const handleName = (e) =>{
+         setUserInfo({...userInfo , name:e.target.value})
+     }
      const handleEmail = (e) =>{
           const emailRegex = /\S+@\S+\.\S+/
           const validEmail =   emailRegex.test(e.target.value)
@@ -50,6 +57,8 @@ const SignUp = () => {
         const handleCreateAccount = (e) =>{
           e.preventDefault()
           createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+         
+          console.log(user);
         }
   return (
     <div>
@@ -59,7 +68,7 @@ const SignUp = () => {
           <div className="container">
             <div className="contact-form row">
               <div className="form-field col-lg-6">
-                <input className="input-text" type="text" name="name" />
+                <input onChange={handleName} className="input-text" type="text" name="name" />
                 <label htmlFor="email">Name</label>
               </div>
               <div className="form-field col-lg-6">
@@ -70,11 +79,12 @@ const SignUp = () => {
               <div className="form-field col-lg-6">
                 <input onChange={handlePassword} className="input-text" type="password" name="password" />
                 <label htmlFor="password">Password</label>
+                {errors?.password && <p className="text-danger my-3 fw-bold">{errors?.password}</p>}
               </div>
               <div className="form-field col-lg-6">
                 <input className="input-text" type="password" name="password" />
                 <label htmlFor="password">Confirm Password</label>
-                {errors?.password && <p className="text-danger my-3 fw-bold">{errors?.password}</p>}
+               
 
               </div>
               <div className="form-field col-lg-12">

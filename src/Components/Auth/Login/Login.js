@@ -46,20 +46,21 @@ const Login = () => {
         }
         const handleCreateAccount = (e) =>{
           e.preventDefault()
+          signInWithEmailAndPassword(userInfo.email, userInfo.password)
         }
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleCreateAccount}>
         <div className="login">
           <h1 className="title">Login</h1>
           <div className="container">
             <div className="contact-form row">
               <div className="form-field col-lg-12">
-                <input className="input-text" type="email" name="email" />
+                <input onChange={handleEmail} className="input-text" type="email" name="email" />
                 <label htmlFor="email">Email</label>
               </div>
               <div className="form-field col-lg-12">
-                <input className="input-text" type="password" name="password" />
+                <input onChange={handlePassword} className="input-text" type="password" name="password" />
                 <label htmlFor="password">Password</label>
               </div>
               <div className="form-field col-lg-12">
