@@ -72,15 +72,16 @@ const SignUp = () => {
       setUserInfo({...userInfo, confirmPassword:""})
     }
   };
-  if (user) {
-    navigate("/");
-  }
+  
   const handleCreateAccount = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
    
   };
 
+  if (user) {
+    navigate("/");
+  }
  
   return (
     <div>
