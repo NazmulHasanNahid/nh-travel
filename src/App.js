@@ -1,16 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './Components/Home/Home';
 import Navigation from './Components/Pages/Shared/Navigation/Navigation';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Components/Auth/Login/Login';
 import ServiceDetail from './Components/Pages/Services/ServiceDetail';
-import NotFound from './Components/Pages/NotFound/NotFound';
 import Services from './Components/Pages/Services/Services';
 import CheckOut from './Components/Pages/CheckOut/CheckOut';
 import SignUp from './Components/Auth/SignUp/SignUp';
 import RequireAuth from './Components/Auth/RequireAuth/RequireAuth';
 import Footer from './Components/Pages/Shared/Footer/Footer';
+import NotFound from './Components/Pages/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
        <Route path='/register' element={<SignUp/>}/>
        <Route path='/checkout' element={<RequireAuth><CheckOut/></RequireAuth>}/>
        <Route path='/service' element={<Services/>}/>
-      <Route path='*' element={<NotFound/>}/>
+      <Route path='*' element={<NotFound/>}/>     
      </Routes>
      <Footer/>
     </div>

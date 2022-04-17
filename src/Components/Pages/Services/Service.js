@@ -3,6 +3,7 @@ import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
+
 const Service = ({ service }) => {
 const navigate = useNavigate()
   const { name, description, price, img , id} = service;
@@ -15,6 +16,9 @@ const navigate = useNavigate()
             <Card.Title>{name}</Card.Title>
             <Card.Text>
              {description.slice(0,100)}
+            </Card.Text>
+            <Card.Text>
+            Price : ${price}
             </Card.Text>
             <Card.Text >
              <Button onClick={()=> navigate(`/service-detail/${id}`)} className="w-100" variant="outline-primary">Book</Button>

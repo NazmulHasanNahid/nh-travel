@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -59,6 +61,12 @@ const Login = () => {
          
 
         }
+        useEffect(()=>{
+          if(error){
+            toast(error?.message)
+           
+          }
+        },[error])
   return (
     <div>
       <form onSubmit={handleCreateAccount}>
@@ -67,18 +75,23 @@ const Login = () => {
           <div className="container">
             <div className="contact-form row">
               <div className="form-field col-lg-12">
-                <input required onChange={handleEmail} className="input-text" type="email" name="email" />
-                <label htmlFor="email">Email</label>
+                <input placeholder="Email" required onChange={handleEmail} className="input-text" type="email" name="email" />
+                {errors?.email && (
+                  <p className="text-danger my-3 fw-bold">{errors?.email}</p>
+                )}
               </div>
               <div className="form-field col-lg-12">
-                <input required onChange={handlePassword} className="input-text" type="password" name="password" />
-                <label htmlFor="password">Password</label>
+                <input placeholder="password" required onChange={handlePassword} className="input-text" type="password" name="password" />
+                {errors?.password && (
+                  <p className="text-danger my-3 fw-bold">{errors?.password}</p>
+                )}
               </div>
               <div className="form-field col-lg-12">
-               {errorElement}
+              
                <p className="my-3">New In NH Travel? <Link to="/register">Create Account</Link></p>
+               {errorElement}
                <div className="d-flex align-items-center ">
-
+                
                 <input
                   className="login-btn"
                   type="submit"
@@ -87,7 +100,7 @@ const Login = () => {
                 />
                <SocialLogin/>
                </div>
-                
+                <ToastContainer/>
               </div>
             </div>
           </div>
