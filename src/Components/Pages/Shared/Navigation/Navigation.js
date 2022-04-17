@@ -16,8 +16,8 @@ const Navigation = () => {
   }
 
   return (
-    <div className="sticky-top">
-      <Navbar bg="none" expand="lg"  >
+    <div className="">
+      <Navbar bg="white" expand="lg"  >
         <Container>
           <Navbar.Brand as={Link} to="/home"><img width="40px" src={logo} alt="" /><span className="fw-bold text-primary">Travel</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
