@@ -7,7 +7,8 @@ const Banner = () => {
     <div className="container mx-auto">
       <Row className="d-flex align-items-center">
            <Col lg={6} sm={12}>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident tempore molestiae libero saepe ducimus facilis doloribus quia enim aperiam minima. Molestias a expedita dignissimos ipsa hic consectetur nostrum doloribus, nobis aut quas incidunt nisi, eaque veritatis deserunt! Dicta sequi ipsa eos impedit tempora ullam. Aut eaque nihil sunt. Maxime, hic.</p>
+          <p>If you Want To Travel You can Contact With us We are Working on Travel Guiding and we have lot of packages spceially Tour Guide , Tour Package And Travel And Hotel Management Packages , You can find There Best Travel Packages In reasonable Price</p>
+          <p>Our happiest moments as tourists always seem to come when we stumble upon one thing while in pursuit of something else. <span className="text-info">Lawrence Block</span></p>
           <Button variant="outline-primary">Explore</Button>
            </Col>
            <Col lg={6} sm={12}>
