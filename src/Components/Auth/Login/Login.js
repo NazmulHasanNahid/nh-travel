@@ -22,6 +22,10 @@ const Login = () => {
           email:"" ,
           password:"",
      })
+     let errorElement ; 
+        if (error) {
+          errorElement = <p className='text-danger'>Error: {error?.message}</p>
+      }
         const handleEmail = (e) =>{
           const emailRegex = /\S+@\S+\.\S+/
           const validEmail =   emailRegex.test(e.target.value)
@@ -45,10 +49,13 @@ const Login = () => {
             setErrors({...errors , password:'Password Must Be  contain 6 characters'})
           }
         }
+        if(user){
+          navigate('/')
+        }
         const handleCreateAccount = (e) =>{
           e.preventDefault()
           signInWithEmailAndPassword(userInfo.email, userInfo.password)
-          navigate('/')
+         
 
         }
   return (
@@ -67,6 +74,7 @@ const Login = () => {
                 <label htmlFor="password">Password</label>
               </div>
               <div className="form-field col-lg-12">
+               {errorElement}
                 <input
                   className="login-btn"
                   type="submit"

@@ -10,15 +10,16 @@ import auth from "../../../firebase.init";
 
 const SignUp = () => {
      const navigate = useNavigate()
-     
-     
-
      const [
           createUserWithEmailAndPassword,
           user,
           loading,
           error,
         ] = useCreateUserWithEmailAndPassword(auth);
+        let errorElement ; 
+        if (error) {
+          errorElement = <p className='text-danger'>Error: {error?.message}</p>
+      }
 
      const [userInfo , setUserInfo] = useState({
           name: "" ,
@@ -55,10 +56,14 @@ const SignUp = () => {
             setErrors({...errors , password:'Password Must Be  contain 6 characters'})
           }
         }
+        if(user){
+          navigate('/')
+        }
         const handleCreateAccount = (e) =>{
           e.preventDefault()
           createUserWithEmailAndPassword(userInfo.email, userInfo.password)
-          navigate('/')
+          console.log(error);
+         
           
           
         }
@@ -90,6 +95,7 @@ const SignUp = () => {
 
               </div>
               <div className="form-field col-lg-12">
+              {errorElement}
                 <input
                   className="login-btn"
                   type="submit"
