@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword ,  useSendPasswordResetEmail} from 'react-firebase-hooks/auth';
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {BsEyeFill} from 'react-icons/bs'
+import { Button } from "react-bootstrap";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
   const [showPassword , setShowPassword] = useState(false)
@@ -69,6 +71,12 @@ const Login = () => {
            
           }
         },[error])
+      
+      const handleResetPassword = () =>{
+        sendPasswordResetEmail(userInfo.email)
+         toast('Check Your Mail , Email Sended')
+      }
+  
   return (
     <div>
       <form onSubmit={handleCreateAccount}>
@@ -88,8 +96,8 @@ const Login = () => {
                   <p className="text-danger my-3 fw-bold">{errors?.password}</p>
                 )}
                <p className="mt-3">{<BsEyeFill size={20} onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
-                
-              
+               <p>Forget Password? <Link to="/login" onClick={handleResetPassword}>Reset Password</Link></p> 
+               
               </div>
               
               <div className="form-field col-lg-12">

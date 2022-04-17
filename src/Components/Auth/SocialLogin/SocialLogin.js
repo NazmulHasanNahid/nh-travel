@@ -9,7 +9,7 @@ const SocialLogin = () => {
      const navigate = useNavigate()
 
      if(user){
-          navigate('/')
+          navigate('/checkout')
      }
      return (
           <div className='ms-3'>

@@ -26,9 +26,11 @@ const Navigation = () => {
               <Nav.Link className="fw-bold " as={Link} to="/home">Home</Nav.Link>
             
               <Nav.Link className="fw-bold " as={Link} to="/service">Service</Nav.Link>
+              <Nav.Link className="fw-bold " as={Link} to="/blog">BLog</Nav.Link>
+            <Nav.Link className="fw-bold " as={Link} to="/about">About</Nav.Link>
              {user ? <Nav.Link className="fw-bold " onClick={handleLogout}>LogOut</Nav.Link> :<Nav.Link className="fw-bold " as={Link} to="/login ">Login</Nav.Link>}
             { user && <Nav.Link className="fw-bold " as={Link} to=""><FaUser/>{user?.email}</Nav.Link>}
-
+            
             </Nav>
           </Navbar.Collapse>
         </Container>

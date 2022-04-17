@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "Seven Dasys Tour",
+    "name": "Seven Dasy Tour",
     "description": "Four Places Visit And Included Hotel Service And Free Lunch And Dinner",
     "price": 700,
     "img": "https://i.ibb.co/qmLdGRs/guide1.png"
@@ -17,7 +17,7 @@
   },
   {
     "id": "3",
-    "name": "Half Days Tour",
+    "name": "Half Day Tour",
     "description": "This Tour Has only for this Person Who can swimming in River and Enjoy The Sea beach Vibe",
     "price": 100,
     
