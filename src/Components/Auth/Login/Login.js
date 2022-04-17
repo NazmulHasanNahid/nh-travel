@@ -6,9 +6,11 @@ import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {BsEyeFill} from 'react-icons/bs'
 
 const Login = () => {
+  const [showPassword , setShowPassword] = useState(false)
+  
      const navigate = useNavigate()
      const [
           signInWithEmailAndPassword,
@@ -81,11 +83,15 @@ const Login = () => {
                 )}
               </div>
               <div className="form-field col-lg-12">
-                <input placeholder="password" required onChange={handlePassword} className="input-text" type="password" name="password" />
+                <input placeholder="password" required onChange={handlePassword} className="input-text" type={showPassword? "text" :"password"} name="password" />
                 {errors?.password && (
                   <p className="text-danger my-3 fw-bold">{errors?.password}</p>
                 )}
+               <p className="mt-3">{<BsEyeFill onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
+                
+              
               </div>
+              
               <div className="form-field col-lg-12">
               
                <p className="my-3">New In NH Travel? <Link to="/register">Create Account</Link></p>

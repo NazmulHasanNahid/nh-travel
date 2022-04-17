@@ -7,8 +7,11 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import Loading from "../../Pages/Shared/Loading/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {BsEyeFill} from 'react-icons/bs'
+
 
 const SignUp = () => {
+  const [showPassword , setShowPassword] = useState(false)
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
   useEffect(()=>{
@@ -122,7 +125,7 @@ const from = location.state?.from?.pathname || "/"
                   required
                   onChange={handlePassword}
                   className="input-text"
-                  type="password"
+                  type={showPassword? "text" :"password"}
                   name="password"
                   placeholder="Password"
                 />
@@ -136,8 +139,8 @@ const from = location.state?.from?.pathname || "/"
                   onChange={handleConfirmPassword}
                   required
                   className="input-text"
-                  type="password"
-                  name="password"
+                  type={showPassword? "text" :"password"}
+                  name="confirmPassword"
                   placeholder="Confirm Password"
                 />
                 {errors?.confirmPassword && (
@@ -147,6 +150,8 @@ const from = location.state?.from?.pathname || "/"
                 )}
               
               </div>
+              <p className="">{<BsEyeFill onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
+                
               <div className="form-field col-lg-12">
                
                 
