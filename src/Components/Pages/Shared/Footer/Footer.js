@@ -40,9 +40,9 @@ const Footer = () => {
                 </Col>
                 <Col>
                     <div>
-                    <BsFacebook className='ms-3 text-' size={40}/>
-                    <SiInstagram className='ms-3 ' size={40}/>
-                    <BsLinkedin className='ms-3 ' size={40}/>
+                    <BsFacebook className='ms-3 text-' size={20}/>
+                    <SiInstagram className='ms-3 ' size={20}/>
+                    <BsLinkedin className='ms-3 ' size={20}/>
                     <p className='my-3'> <MdOutlineMarkEmailUnread className='mx-3'/> nhnahid.work@gmail.com</p>
                     <p><BsWhatsapp  className='mx-3'/>01646170993</p>
                     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
+import img from '../../../img/checkout.png'
 
 
 const CheckOut = () => {
@@ -11,8 +12,7 @@ const CheckOut = () => {
     <div className="container my-5 p-5">
       <Row xs={1} md={2} className="g-5 d-flex align-items-center ">
         <Col>
-          <h4>Product Details Coming Soon..</h4>
-          <p className="">Service id : </p>
+         <img className="img-fluid" src={img} alt="" />
         </Col>
         <Col>
           <Form>
