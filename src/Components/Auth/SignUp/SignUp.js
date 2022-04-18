@@ -9,6 +9,8 @@ import { BsEyeFill } from "react-icons/bs";
 import Loading from "../../Pages/Shared/Loading/Loading";
 
 const SignUp = () => {
+  const navigate = useNavigate()
+
   const [showPassword, setShowPassword] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -73,10 +75,9 @@ const SignUp = () => {
     await updateProfille({displayName:userInfo.name})
     
   };
-  const navigate = useNavigate()
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-
+  console.log(location);
   if (user) {
     navigate(from, { replace: true });
   }

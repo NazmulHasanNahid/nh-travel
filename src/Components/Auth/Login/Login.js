@@ -80,6 +80,8 @@ const Login = () => {
           toast('Please Enter Your Email Address')
         }
       }
+
+
       const location = useLocation();
       let from = location.state?.from?.pathname || "/";
 
@@ -87,6 +89,9 @@ const Login = () => {
         navigate(from, { replace: true });
       }
      
+
+
+
       if(loading){
         return <Loading/>
       }
