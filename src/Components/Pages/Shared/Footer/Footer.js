@@ -9,12 +9,12 @@ import './Footer.css'
 
 const Footer = () => {
      return (
-          <div className='footer-bg p-5'>
-           <Row  xs={1} md={4}>
+          <div className='footer-bg mt-5 p-5'>
+           <Row  xs={1} md={4} className="w-75 mx-auto">
                 <Col>
                 <h5 className='fw-bold'>Information</h5>
                 <div>
-                     <p>About Us</p>
+                     <p>About My Service</p>
                      <p>More Search</p>
                      <p>Blog</p>
                      <p>Testimonial</p>
@@ -30,7 +30,7 @@ const Footer = () => {
                 </div>
                 </Col>
                 <Col>
-                <h5 className='fw-bold'>Our Service</h5>
+                <h5 className='fw-bold'>My Services</h5>
                 <div>
                      <p>Travel Guide</p>
                      <p>Tour Plan</p>
@@ -48,7 +48,7 @@ const Footer = () => {
                     </div>
                 </Col>
            </Row>
-                <p className='text-center text-success mt-5'>Nh-Official © 2022 all rights reserved</p>
+                <p className='text-center text-success mt-3'>Nh-Official © 2022 all rights reserved</p>
           </div>
      );
 };
