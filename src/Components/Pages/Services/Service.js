@@ -26,7 +26,7 @@ const navigate = useNavigate()
             Price : ${price}
             </Card.Text>
             <Card.Text >
-             <Button onClick={navigateServiceDetail} className="w-100" variant="outline-primary">Book</Button>
+             <Button onClick={navigateServiceDetail} className="w-100" variant="outline-primary">Check Out</Button>
             </Card.Text>
           </Card.Body>
         </Card>
