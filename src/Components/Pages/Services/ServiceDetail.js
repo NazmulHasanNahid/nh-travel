@@ -15,10 +15,12 @@ const ServiceDetail = () => {
         })
   },[id])
   return (
-    <div className="my-5 container">
-      <Row xs={1} md={2}>
+    <div className="my-5 container ">
+      <Row xs={1} md={2} className="g-5 d-flex align-items-center ">
       <Col>
+         <h4>Product Details Coming Soon..</h4>
           <p className="">Service id : {id}</p>
+
         </Col>
         <Col>
           <Form>
@@ -39,7 +41,7 @@ const ServiceDetail = () => {
         </Col>
        
       </Row>
-      <div className="text-center my-5">
+      <div className="text-center my-5 py-5 " >
           <Link to="/checkout">
           <button className="btn btn-primary">Proceed Checkout</button>
         </Link>
