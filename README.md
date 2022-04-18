@@ -4,6 +4,7 @@
 ###### And This Web Site Has Multiple Packages
 ###### Also You Can Chekout Your Order 
 ###### And You Can login And Logout 
+###### And Also This website has blog section where you can read blogs
 
 ### Framwork I Used In This Project 
 ###### React Js For Ui
