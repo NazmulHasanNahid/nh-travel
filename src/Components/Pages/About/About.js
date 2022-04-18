@@ -17,7 +17,8 @@ const About = () => {
             <Card.Body>
               <Card.Title>About Me</Card.Title>
               <Card.Text>
-                   Name : Nazmul Hasan Nahid
+                   Name : Nazmul Hasan Nahid <br />
+                   City : Cumilla
               </Card.Text>
               <Card.Title>My Goals?</Card.Title>
               <Card.Text>
