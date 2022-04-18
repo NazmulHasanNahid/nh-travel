@@ -6,7 +6,7 @@ const Faq = () => {
   return (
     <div className=" my-5 py-5">
       <h2 className="text-center text-warning  d fw-bold">
-      Frequently  <span className="text-primary">Asked Questions</span> <br /> <span className="text-info">________</span>
+      Frequently  <span className="text-dark">Asked Questions</span> <br /> <span className="text-info">________</span>
       </h2>
       <Row xs={1} md={3} className="g-5 d-flex align-items-center justify-content-center">
         <Col>

@@ -18,11 +18,13 @@ const About = () => {
               <Card.Title>About Me</Card.Title>
               <Card.Text>
                    Name : Nazmul Hasan Nahid <br />
-                   City : Cumilla
+                   Institute : Lalmai Govt. College <br />
+                   City : Cumilla <br />
+                   class : 12 <br />
               </Card.Text>
               <Card.Title>My Goals?</Card.Title>
               <Card.Text>
-              Thanks for giving me this golden opportunity to introduce myself before this panel.  i’m a front-end web developer i working on web development sector last 6month and i still  trying to improve my skills and i always try to learn as many thing as possible , And My Future Goals is Become an Full Stack Web Developer and inner future i want to work with Ai And I'm Interested in App Development But my next 6month Goals is learn as many things as possible and become Front-End Web Developer
+              Thanks for giving me this golden opportunity to introduce myself before this panel.  i’m a front-end web developer i working on web development sector last 6month and i still  trying to improve my skills and i always try to learn as many thing as possible , And My Future Goals is Become an Full Stack Web Developer and inner future i want to work with Ai And I'm Interested in App Development But my next 6month Goals is  become Front-End Web Developer And Explore Little Bit Back-End
               </Card.Text>
             </Card.Body>
             
