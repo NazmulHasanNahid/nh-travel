@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
-
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from "react-toastify";
@@ -71,17 +70,15 @@ const SignUp = () => {
     e.preventDefault();
     await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     await updateProfille({displayName:userInfo.name})
-    console.log(userInfo.name);
+    
   };
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  useEffect(() => {
-    if (user) {
-      navigate(from);
-    }
-  }, [user]);
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
   
   return (
     <div>

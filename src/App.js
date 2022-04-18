@@ -3,7 +3,6 @@ import Home from './Components/Home/Home';
 import Navigation from './Components/Pages/Shared/Navigation/Navigation';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Components/Auth/Login/Login';
-import ServiceDetail from './Components/Pages/Services/ServiceDetail';
 import Services from './Components/Pages/Services/Services';
 import CheckOut from './Components/Pages/CheckOut/CheckOut';
 import SignUp from './Components/Auth/SignUp/SignUp';
@@ -20,7 +19,6 @@ function App() {
      <Routes>
        <Route path='/' element={ <Home/>}/>
        <Route path='/home' element={ <Home/>}/>
-       <Route path='/service-detail/:id' element={<ServiceDetail/>}/>
        <Route path='/login' element={<Login/>}/>
        <Route path='/register' element={<SignUp/>}/>
        <Route path='/service' element={<Services/>}/>

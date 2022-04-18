@@ -4,7 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 const BLog = () => {
      return (
           <div className='container shadow my-5 p-5'>
-             <Row xs={1} md={2} className="g-4">
+             <Row xs={1} md={2} className="g-4 ">
                   <Col>
                    <h5>1.Why are you using firebase? What other options do you have to implement authentication?</h5>
                    <p>Ans: i'm  Using Firebase For Multipurposes First of all i'm using firebase for Authorised user and also i can  build  Authentication systeam using firebase Second Of all i'm Hosting Website Using Firebase and firebase is a data base thats why i can used firebase for store data .At this moment i have lot of firebase alternative for  implement authentication<br /> for example :

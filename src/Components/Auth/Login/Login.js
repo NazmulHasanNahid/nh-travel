@@ -84,11 +84,7 @@ const Login = () => {
       if (user) {
         navigate(from, { replace: true });
       }
-      // useEffect(()=>{
-      //     if(user){
-      //       navigate('/')
-      //     }
-      // },[user])
+     
   
   return (
     <div>

@@ -5,7 +5,7 @@ import img from "../../../img/formal-pic.JPG";
 const About = () => {
   return (
     <div className="container my-5 shadow-lg p-5">
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={1} md={2} className="g-4 ">
         <Col>
           <Card className="border shadow p-3">
             <Card.Img variant="top" src={img} />
