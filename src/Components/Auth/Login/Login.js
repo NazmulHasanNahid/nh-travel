@@ -8,8 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {BsEyeFill} from 'react-icons/bs'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import Loading from "../../Pages/Shared/Loading/Loading";
 
 const Login = () => {
+  
   const [sendPasswordResetEmail, sending, passError] = useSendPasswordResetEmail(
     auth
   );
@@ -85,7 +87,9 @@ const Login = () => {
         navigate(from, { replace: true });
       }
      
-  
+      if(loading){
+        return <Loading/>
+      }
   return (
     <div>
       <form onSubmit={handleCreateAccount}>

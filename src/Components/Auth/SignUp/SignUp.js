@@ -6,6 +6,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BsEyeFill } from "react-icons/bs";
+import Loading from "../../Pages/Shared/Loading/Loading";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -79,7 +80,9 @@ const SignUp = () => {
   if (user) {
     navigate(from, { replace: true });
   }
-  
+  if(loading){
+    return <Loading/>
+  }
   return (
     <div>
       <form onSubmit={handleCreateAccount}>
