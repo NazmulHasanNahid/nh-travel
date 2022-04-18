@@ -23,10 +23,10 @@ function App() {
        <Route path='/service-detail/:id' element={<ServiceDetail/>}/>
        <Route path='/login' element={<Login/>}/>
        <Route path='/register' element={<SignUp/>}/>
-       <Route path='/checkout' element={<RequireAuth><CheckOut/></RequireAuth>}/>
        <Route path='/service' element={<Services/>}/>
        <Route path='/blog' element={<BLog/>}/>
        <Route path='/about' element={<About/>}/>
+       <Route path='/checkout' element={<RequireAuth><CheckOut/></RequireAuth>}/>
       <Route path='*' element={<NotFound/>}/>     
      </Routes>
      <Footer/>

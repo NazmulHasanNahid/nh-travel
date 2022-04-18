@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useSignInWithEmailAndPassword ,  useSendPasswordResetEmail} from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword , } from 'react-firebase-hooks/auth';
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {BsEyeFill} from 'react-icons/bs'
-import { Button } from "react-bootstrap";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 
 const Login = () => {
+  const [sendPasswordResetEmail, sending, passError] = useSendPasswordResetEmail(
+    auth
+  );
   const [showPassword , setShowPassword] = useState(false)
   
      const navigate = useNavigate()
@@ -29,10 +31,7 @@ const Login = () => {
           email:"" ,
           password:"",
      })
-     let errorElement ; 
-        if (error) {
-          errorElement = <p className='text-danger'>Error: {error?.message}</p>
-      }
+     
         const handleEmail = (e) =>{
           const emailRegex = /\S+@\S+\.\S+/
           const validEmail =   emailRegex.test(e.target.value)
@@ -56,9 +55,7 @@ const Login = () => {
             setErrors({...errors , password:'Password Must Be  contain 6 characters'})
           }
         }
-        if(user){
-          navigate('/')
-        }
+        
         const handleCreateAccount = (e) =>{
           e.preventDefault()
           signInWithEmailAndPassword(userInfo.email, userInfo.password)
@@ -72,9 +69,19 @@ const Login = () => {
           }
         },[error])
       
-      const handleResetPassword = () =>{
-        sendPasswordResetEmail(userInfo.email)
-         toast('Check Your Mail , Email Sended')
+      const handleResetPassword = async () =>{
+        if(userInfo.email){
+
+          await sendPasswordResetEmail(userInfo.email)
+          toast('Sent Email')
+        }else{
+          toast('Please Enter Your Email Address')
+        }
+      }
+
+
+      if(user){
+        navigate('/')
       }
   
   return (
@@ -96,7 +103,7 @@ const Login = () => {
                   <p className="text-danger my-3 fw-bold">{errors?.password}</p>
                 )}
                <p className="mt-3">{<BsEyeFill size={20} onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
-               <p>Forget Password? <Link to="/login" onClick={handleResetPassword}>Reset Password</Link></p> 
+               <p>Forget Password? <button className="btn btn-link text-primary pe-auto text-decoration-none" onClick={handleResetPassword}>Reset Password</button></p> 
                
               </div>
               

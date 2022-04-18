@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import Loading from "../../Pages/Shared/Loading/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {BsEyeFill} from 'react-icons/bs'
-
+import { BsEyeFill } from "react-icons/bs";
 
 const SignUp = () => {
-  const [showPassword , setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
-  useEffect(()=>{
-    if(error){
-      toast(error?.message)
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfille , updating , profileError] = useUpdateProfile(auth)
+  useEffect(() => {
+    if (error) {
+      toast(error?.message);
     }
-  },[error])
-  const navigate = useNavigate();
-  let errorElement;
-  if (error) {
-    errorElement = <p className="text-danger">Error: {error?.message}</p>;
-  }
-
+  }, [error]);
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
@@ -36,9 +29,7 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  
   const handleName = (e) => {
     setUserInfo({ ...userInfo, name: e.target.value });
   };
@@ -67,28 +58,31 @@ const SignUp = () => {
     }
   };
   const handleConfirmPassword = (e) => {
-    if(e.target.value === userInfo.password){
-      setUserInfo({...userInfo ,confirmPassword:e.target.value })
-      setErrors({...errors ,  password : ""})
-    }else{
-      setErrors({...errors ,  password : "Password Don't Match"})
-      setUserInfo({...userInfo, confirmPassword:""})
+    if (e.target.value === userInfo.password) {
+      setUserInfo({ ...userInfo, confirmPassword: e.target.value });
+      setErrors({ ...errors, password: "" });
+    } else {
+      setErrors({ ...errors, password: "Password Don't Match" });
+      setUserInfo({ ...userInfo, confirmPassword: "" });
     }
   };
-  
-  const handleCreateAccount = (e) => {
+
+  const handleCreateAccount = async(e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-   
+    await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+    await updateProfille({displayName:userInfo.name})
+    console.log(userInfo.name);
   };
-const location = useLocation()
-const from = location.state?.from?.pathname || "/"
- useEffect(()=>{
-  if (user) {
-    navigate(from);
-  }
- },[user]) 
- 
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (user) {
+      navigate(from);
+    }
+  }, [user]);
+  
   return (
     <div>
       <form onSubmit={handleCreateAccount}>
@@ -105,7 +99,6 @@ const from = location.state?.from?.pathname || "/"
                   name="name"
                   placeholder="Enter Your name"
                 />
-               
               </div>
               <div className="form-field col-lg-6">
                 <input
@@ -125,21 +118,20 @@ const from = location.state?.from?.pathname || "/"
                   required
                   onChange={handlePassword}
                   className="input-text"
-                  type={showPassword? "text" :"password"}
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
                 />
                 {errors?.password && (
                   <p className="text-danger my-3 fw-bold">{errors?.password}</p>
                 )}
-                
               </div>
               <div className="form-field col-lg-6">
                 <input
                   onChange={handleConfirmPassword}
                   required
                   className="input-text"
-                  type={showPassword? "text" :"password"}
+                  type={showPassword ? "text" : "password"}
                   name="confirmPassword"
                   placeholder="Confirm Password"
                 />
@@ -148,15 +140,18 @@ const from = location.state?.from?.pathname || "/"
                     {errors?.confirmPassword}
                   </p>
                 )}
-              
               </div>
-              <p className="">{<BsEyeFill size={20} onClick={()=> setShowPassword(!showPassword)}/>} show Password</p>
-                
+              <p className="">
+                {
+                  <BsEyeFill
+                    size={20}
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                }{" "}
+                show Password
+              </p>
+
               <div className="form-field col-lg-12">
-               
-                
-                
-                
                 <p className="my-3">
                   Already Have An Account <Link to="/login">Login</Link>
                 </p>
@@ -169,7 +164,7 @@ const from = location.state?.from?.pathname || "/"
                   />
                   <SocialLogin />
                 </div>
-                <ToastContainer/>
+                <ToastContainer />
               </div>
             </div>
           </div>
