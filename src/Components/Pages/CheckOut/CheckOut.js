@@ -30,7 +30,7 @@ const CheckOut = () => {
               <Form.Control type="Text" placeholder="Phone" />
             </Form.Group>
           </Form>
-        </Col>
+     </Col>
       </Row>
       <div className="text-center my-5 py-5 " >
           <Button  variant="outline-primary" onClick={handleCheckout}>Proceed Checkout</Button>

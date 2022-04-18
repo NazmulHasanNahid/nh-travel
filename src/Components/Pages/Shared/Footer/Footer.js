@@ -48,7 +48,7 @@ const Footer = () => {
                     </div>
                 </Col>
            </Row>
-                <p className='text-center text-warning mt-3'>Nh-Official © 2022 all rights reserved</p>
+                <p className='text-center text-secondary mt-3'>Nh-Official © 2022 all rights reserved</p>
           </div>
      );
 };
